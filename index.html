@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Relief - Smart Congestion Solution</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Traffic Relief</div>
+        <div class="nav-links">
+            <button class="tab-btn active" onclick="openTab('home')">Home</button>
+            <button class="tab-btn" onclick="openTab('portfolio')">Portfolio</button>
+            <button class="tab-btn" onclick="openTab('posters')">Posters</button>
+            <button class="tab-btn" onclick="openTab('logbooks')">Logbooks</button>
+            <button class="tab-btn" onclick="openTab('recommendation')">Recommendation</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <header class="hero">
+                <h1>Smart Traffic Relief System</h1>
+                <p class="subtitle">An automated congestion management prototype for 6th October Bridge, Egypt.</p>
+            </header>
+
+            <!-- Problem & Solution -->
+            <section class="intro-section">
+                <div class="intro-card">
+                    <h2>The Problem</h2>
+                    <p>Traffic congestion is a critical issue in Egypt, particularly on the <strong>6th October
+                            Bridge</strong>. Consistent jams cause delays, increased pollution, and economic loss.
+                        Traditional traffic management is often reactive rather than proactive.</p>
+                </div>
+                <div class="intro-card">
+                    <h2>Our Solution</h2>
+                    <p>We developed an autonomous prototype that monitors traffic density in real-time. Uniquely, it
+                        employs two different logic systems for <strong>Day</strong> and <strong>Night</strong>
+                        operation to ensure maximum accuracy. When congestion is detected, the system activates a servo
+                        mechanism to open an auxiliary "green road," relieving the jam instantly.</p>
+                </div>
+            </section>
+
+            <section class="prototype-showcase">
+                <h2>Prototype Visualization</h2>
+                <div class="logic-container">
+                    <div class="logic-card" style="text-align: center;">
+                        <h3>Daytime Operation</h3>
+                        <img src="traffic_prototype_day.png" alt="Daytime Prototype"
+                            style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p>Simulating traffic detection with CO and Dust sensors.</p>
+                    </div>
+                    <div class="logic-card" style="text-align: center;">
+                        <h3>Nighttime Operation</h3>
+                        <img src="traffic_prototype_night.png" alt="Nighttime Prototype"
+                            style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <p>Simulating traffic detection with Light sensors (BH1750).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="educational-section">
+                <h2>Technical Specifications</h2>
+
+                <!-- Day Logic -->
+                <div class="tech-block">
+                    <div class="tech-header">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon-inline">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            Daytime Detection Logic
+                        </h3>
+                        <span class="badge">Environmental Sensing</span>
+                    </div>
+                    <p>During the day, visual detection is unreliable. We rely on chemical and physical properties of
+                        exhaust emissions.</p>
+
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <img src="sensors/MQ-7.jpg" alt="MQ-7 CO Sensor">
+                            <h4>MQ-7 Gas Sensor</h4>
+                            <p>Measures <strong>Carbon Monoxide (CO)</strong>&nbsp;levels from vehicle exhaust.</p>
+                        </div>
+                        <div class="spec-card">
+                            <img src="sensors/GP2Y1010.jpg" alt="GP2Y1010 Dust Sensor">
+                            <h4>GP2Y1010 Optical Sensor</h4>
+                            <p>Detects <strong>Fine Particles (PM2.5)</strong>&nbsp;in car emissions. Acts as a
+                                "confirmation" sensor to rule out non-traffic pollution sources (e.g., factories).</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-details">
+                        <ul>
+                            <li><strong>Logic:</strong>&nbsp;Both sensors must return "High" readings simultaneously to
+                                confirm congestion.</li>
+                            <li><strong>Mounting Height:</strong>&nbsp;<strong>2.5 meters</strong>&nbsp;above ground.
+                            </li>
+                            <li><strong>Reasoning:</strong>&nbsp;Exhaust gases and heavy particles stay close to the
+                                ground. This low height ensures the sensors are directly in the emission cloud.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Night Logic -->
+                <div class="tech-block">
+                    <div class="tech-header">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon-inline">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                            Nighttime Detection Logic
+                        </h3>
+                        <span class="badge">Light Intensity</span>
+                    </div>
+                    <p>At night, we analyze light patterns created by vehicle headlights.</p>
+
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <img src="sensors/s-l960.webp" alt="BH1750 Light Sensor">
+                            <h4>BH1750 Light Sensor</h4>
+                            <p>Measures the intensity of light pollution on the road.</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-details">
+                        <ul>
+                            <li><strong>Logic:</strong>&nbsp;Stationary cars create a steady, high-intensity light
+                                field. Moving traffic creates fluctuating signals. The system triggers when high, steady
+                                light is detected.</li>
+                            <li><strong>Isolation:</strong>&nbsp;The sensor is placed inside a <strong>10 cm black
+                                    tube</strong>&nbsp;to limit its field of view and block interference from
+                                streetlights or buildings.</li>
+                            <li><strong>Mounting Height:</strong>&nbsp;<strong>5 meters</strong>&nbsp;above the road.
+                            </li>
+                            <li><strong>Angle:</strong>&nbsp;Tilted downwards at <strong>45 degrees</strong>. This
+                                bird's-eye view allows it to monitor lanes effectively while reducing glare.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Control System -->
+                <div class="tech-block">
+                    <div class="tech-header">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="icon-inline">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                            Control Mechanism
+                        </h3>
+                        <span class="badge">Automation</span>
+                    </div>
+                    <p>The brain of the operation is an <strong>Arduino Controller</strong>.</p>
+                    <ul class="control-list">
+                        <li><strong>Input:</strong>&nbsp;Processes real-time data from Day or Night sensors based on a
+                            photo-resistor trigger.</li>
+                        <li><strong>Action:</strong>&nbsp;If congestion is confirmed, it activates a <strong>Servo
+                                Motor</strong>.</li>
+                        <li><strong>Output:</strong>&nbsp;The servo lifts a barrier or switches a signal to open the
+                            secondary "green road". Once sensor readings normalize, the road is closed.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section class="team-section">
+                <h2>Meet the Creators</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="our_images/Bohi.png" alt="Marwan El-Bohi">
+                        <h3>Marwan El-Bohi</h3>
+                        <p>Team Leader</p>
+                        <a href="https://wa.me/201030427915" target="_blank" class="contact-btn">Contact via
+                            WhatsApp</a>
+                    </div>
+                    <div class="team-member">
+                        <img src="our_images/Moaz.jpeg" alt="Moaz Mohamed">
+                        <h3>Moaz Mohamed</h3>
+                        <p>Developer</p>
+                        <a href="https://wa.me/201099154655" target="_blank" class="contact-btn">Contact via
+                            WhatsApp</a>
+                    </div>
+                    <div class="team-member">
+                        <img src="our_images/Yusuf.jpeg" alt="Yusuf Musa">
+                        <h3>Yusuf Musa</h3>
+                        <p>Designer</p>
+                        <a href="https://wa.me/201064265554" target="_blank" class="contact-btn">Contact via
+                            WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Portfolio Tab -->
+        <div id="portfolio" class="tab-content">
+            <h2>Project Portfolio</h2>
+            <p>Comprehensive documentation of our project's journey, research, and technical details.</p>
+            <div class="file-card">
+                <div class="file-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                </div>
+                <div class="file-info">
+                    <h3>Project Portfolio (2025-2026)</h3>
+                    <a href="writings/10343.Portfolio.(2025-2026).pdf" target="_blank" class="download-btn">View /
+                        Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posters Tab -->
+        <div id="posters" class="tab-content">
+            <h2>Project Posters</h2>
+            <div class="posters-grid">
+                <div class="file-card">
+                    <div class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <h3>Full Size Poster</h3>
+                        <a href="writings/10343. Full Size Poster.(2025-2026).pdf" target="_blank"
+                            class="download-btn">View PDF</a>
+                    </div>
+                </div>
+                <div class="file-card">
+                    <div class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <h3>A4 Poster</h3>
+                        <a href="writings/10343.A4 Poster.(2025-2026).pdf" target="_blank" class="download-btn">View
+                            PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logbooks Tab -->
+        <div id="logbooks" class="tab-content">
+            <h2>Team Logbooks</h2>
+            <div class="logbooks-list">
+                <div class="file-card">
+                    <div class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <h3>Marwan El-Bohi's Logbook</h3>
+                        <a href="Logbooks/102343 Bohi Log Book.pdf" target="_blank" class="download-btn">Open</a>
+                    </div>
+                </div>
+                <div class="file-card">
+                    <div class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <h3>Moaz Mohamed's Logbook</h3>
+                        <a href="Logbooks/10343 Moaz Log Book.pdf" target="_blank" class="download-btn">Open</a>
+                    </div>
+                </div>
+                <div class="file-card">
+                    <div class="file-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="file-info">
+                        <h3>Yusuf Musa's Logbook</h3>
+                        <a href="Logbooks/102343 Yusuf Log Book.pdf" target="_blank" class="download-btn">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommendation Tab -->
+        <div id="recommendation" class="tab-content">
+            <h2>Recommendations & Real-Life Application</h2>
+
+            <div class="intro-card" style="margin-bottom: 2rem;">
+                <h3>From Prototype to Reality</h3>
+                <p>Scaling our prototype to a full Intelligent Traffic Management System (ITMS) requires strategic
+                    deployment and advanced communication protocols.</p>
+            </div>
+
+            <!-- Real Life Application -->
+            <div class="tech-block">
+                <div class="tech-header">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-inline">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Target Location: 6th October Bridge
+                    </h3>
+                    <span class="badge">Real-Life Application</span>
+                </div>
+                <div class="tech-details" style="border-left-color: var(--secondary-color);">
+                    <p style="margin-bottom: 1rem;"><strong>Context:</strong> The 6th October Bridge is a crucial 20.5
+                        km elevated highway connecting Giza with central Cairo, serving around <strong>500,000 vehicles
+                            daily</strong>. It experiences significant congestion with volumes exceeding 7,000 vehicles
+                        per lane, speeds below 15 km/h, and idling times over 45 minutes.</p>
+                    <p><strong>ITMS Deployment:</strong> The proposed system monitors a 2 km test segment with sensor
+                        clusters every 200 meters. The operation follows three stages:</p>
+                    <ul>
+                        <li><strong>1. Continuous Monitoring:</strong> Collecting real-time data on CO, particulate
+                            matter, and light patterns.</li>
+                        <li><strong>2. Intelligent Decision-Making:</strong> Data fusion algorithms analyze congestion.
+                            If thresholds are exceeded for >5 mins, protocols activate.</li>
+                        <li><strong>3. Control & Actuation:</strong> High-precision servos and signal controllers manage
+                            traffic flow by opening relief lanes or reversing directions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FM Implementation -->
+            <div class="tech-block">
+                <div class="tech-header">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-inline">
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <path
+                                d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14">
+                            </path>
+                        </svg>
+                        Communication: FM Radio Data System (RDS)
+                    </h3>
+                    <span class="badge">Future Connectivity</span>
+                </div>
+                <div class="tech-details" style="border-left-color: var(--accent-color);">
+                    <p style="margin-bottom: 1rem;">To provide real-time updates to motorists, we recommend the
+                        <strong>FM Radio Data System (RDS)</strong> and its Traffic Message Channel (TMC).</p>
+                    <ul>
+                        <li><strong>Mechanism:</strong> A digital signal is sent alongside FM broadcasts. Modern car
+                            radios decode this to show traffic jams on navigation systems and suggest alternative
+                            routes.</li>
+                        <li><strong>Why not in prototype?</strong> Broadcasting licenses are restricted for student
+                            projects, and professional RDS encoders are cost-prohibitive ($1000s) for this prototype
+                            budget.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin: 2rem 0; color: #444;">Hardware Enhancements</h3>
+            <div class="logic-container">
+                <div class="logic-card" style="text-align: center;">
+                    <h3>Advanced Thermal Sensing</h3>
+                    <img src="Recommendation/flir lepton thermal camera.jpg" alt="Thermal Camera"
+                        style="width: 100%; max-width: 300px; border-radius: 8px; margin-bottom: 1rem;">
+                    <p>Incorporating high-precision thermal cameras like the FLIR Lepton could improve vehicle detection
+                        in extreme weather conditions (heavy fog or sandstorms) where optical sensors might struggle.
+                    </p>
+                </div>
+                <div class="logic-card" style="text-align: center;">
+                    <h3>Strategic Location Deployment</h3>
+                    <img src="Recommendation/Location.jpg" alt="Location Deployment"
+                        style="width: 100%; max-width: 300px; border-radius: 8px; margin-bottom: 1rem;">
+                    <p>Expanding the sensor network to cover multiple critical points along the 6th October Bridge will
+                        create a mesh network for city-wide traffic management.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Traffic Relief Project. 6th October Bridge Prototype.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
